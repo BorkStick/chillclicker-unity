@@ -8,7 +8,12 @@ public class Click : MonoBehaviour {
     public UnityEngine.UI.Text chillDisplay;
     public float chill = 0.00f;
     public int chillperclick = 1;
+    private SFXManager sfxMan;
 
+    private void Start()
+    {
+        sfxMan = FindObjectOfType<SFXManager>();
+    }
 
     void Update()
     {
@@ -19,6 +24,8 @@ public class Click : MonoBehaviour {
     public void Clicked()
     {
         chill += chillperclick;
+        sfxMan.playerClick.Play();
+
     }
 
 
